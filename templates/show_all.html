@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted"><a href="{{ url_for('show_all') }}">AoITHS Events</a></h3>
+      </div>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-success">
+        {{ message }}
+      </div>
+      {%- endfor %}
+
+      <h3>Events (<a href="{{ url_for('new') }}">Add event</a>)</h3>
+      <table class="table">
+  <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Date Added</th>
+          </tr>
+	</thead>
+	<tbody>
+          {% for comment in events %}
+          <tr>
+            <td>{{ comment.title }}</td>
+            <td>{{ comment.author }}</td>
+            <td>{{ comment.description }}</td>
+            <td>{{ comment.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

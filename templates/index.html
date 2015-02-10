@@ -12,17 +12,17 @@
 		<meta name="keywords" content="" />
 		<link rel="shortcut icon" href="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-3d-buttons-icons-alphanumeric/070542-glossy-black-3d-button-icon-alphanumeric-letter-aa.png">
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrollex.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/skel-layers.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/init.js') }}"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
@@ -31,19 +31,19 @@
 
 		<!-- Header -->
 			<header id="header">
-				<h1 id="logo"><a href="index.html">Academy of Innovative Technology</a></h1>
+				<h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li>
-							<a href="#four" class="scrolly">Departments</a>
+							<a href="">Departments</a>
 							<ul>
-								<li><a href="cte.html">CTE</a></li>
-								<li><a href="english.html">English</a></li>
-								<li><a href="math.html">Mathematics</a></li>
-								<li><a href="science.html">Science</a></li>
-								<li><a href="foreign.html">Foreign Language</a></li>
-								<li><a href="social.html">History</a></li>
+								<li><a href="/departments/cte">CTE</a></li>
+								<li><a href="/departments/english">English</a></li>
+								<li><a href="/departments/math">Mathematics</a></li>
+								<li><a href="/departments/science">Science</a></li>
+								<li><a href="/departments/foreign">Foreign Language</a></li>
+								<li><a href="/departments/social">History</a></li>
 
 								<!-- <li>
 									<ul>
@@ -55,8 +55,8 @@
 								</li> -->
 							</ul>
 						</li>
-						<!-- <li><a href="events.html">Events</a></li>
-						<li><a href="blog.html">Blog</a></li> -->
+						<li><a href="events.html">Events</a></li>
+						<li><a href="blog.html">Blog</a></li>
 						<li><a href="#five" class="scrolly">Contact</a></li>
 					</ul>
 				</nav>
@@ -90,7 +90,7 @@
 								<p>The Academy of Innovative Technology High School provides a foundation and pathway on which students can build their academic successes and triumph over their challenges. Our innovation lies in exploring inventive ideas, perspectives, and strategies...</p>
 							</div>
 							<div class="4u$ 12u$(medium)">
-								<p>Incorporating technology into the learning process; and presenting opportunities for students to grow as lifelong learners and active citizens. As graduates, AOITHS students will be open-minded, believe in taking risks, learn from their mistakes, and participate in shaping their intellectual behavior thereby realizing their own potential and respinsibility for bringing change to their communities and to the global society.</p>
+								<p>Incorporating technology iunto the learning process; and presenting opportunities for students to grow as lifelong learners and active citizens. As graduates, AOITHS students will be open-minded, believe in taking risks, learn from their mistakes, and participate in shaping their intellectual behavior thereby realizing their own potential and respinsibility for bringing change to their communities and to the global society.</p>
 							</div>
 						</div>
 					</div>
@@ -100,28 +100,28 @@
 
 		<!-- Two -->
 			<section id="two" class="spotlight style2 right">
-				<span class="image fit main"><img src="images/aoit2.jpg" alt="" /></span>
+				<span class="image fit main"><img src="{{ url_for('static', filename='images/aoit2.jpg') }}" alt="" /></span>
 				<div class="content">
 					<header>
 						<h2>At Academy of Innovative Technology...</h2>
 						<p>We believe in all of our students, who are the upcoming future innovators of this world.</p>
 					</header>
 					<p>That's why we encourage and shape all of our students to be at the best of their abilities; each and every day, an AoITHS student comes into school every morning with the mindset of being a star student, with straight A's, and a bunch of opportunities at the end.</p>
-					
+
 				</div>
 				<a href="#three" class="goto-next scrolly">Next</a>
 			</section>
 
 		<!-- Three -->
 			<section id="three" class="spotlight style3 left">
-				<span class="image fit main bottom"><img src="images/aoit4.jpg" alt="" /></span>
+				<span class="image fit main bottom"><img src="{{ url_for('static', filename='images/aoit4.jpg') }}" alt="" /></span>
 				<div class="content">
 					<header>
 						<h2>Also, at AoITHS...</h2>
 						<p></p>
 					</header>
 					<p>Learning relevant and real-world skills in a classroom setting is highly important for the younger mind. We don't only teach, here at AoIT, we implement technology into it as well. Most teachers have their own websites, where they post homeworks and everything that a student needs. Because, well, after all, we are the Academy of Innovative Technology. </p>
-					
+
 				</div>
 				<a href="#four" class="goto-next scrolly">Next</a>
 			</section>
@@ -137,32 +137,32 @@
 						<div class="row uniform">
 							<section class="4u 6u(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-area-chart"></span>
-								<h3><a href="math.html">Mathematics</a></h3>
+								<h3><a href="/departments/math">Mathematics</a></h3>
 								<p>Pythagoras knew what he was talking about when he theoriticized the pythagoras theorem.</p>
 							</section>
 							<section class="4u 6u$(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-comment"></span>
-								<h3><a href="foreign.html">Foreign Language</a></h3>
+								<h3><a href="/departments/foreign">Foreign Language</a></h3>
 								<p>Hola, como estas? Did you understand that? No? Well, that's why we need foreign language.</p>
 							</section>
 							<section class="4u$ 6u(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-flask"></span>
-								<h3><a href="science.html">Science</a></h3>
+								<h3><a href="/departments/science">Science</a></h3>
 								<p>Albert Einstein fleed Germany because he felt that his science would be used for wrong reasons. Well, it was still used for wrong reasons. BOOOOOM.</p>
 							</section>
 							<section class="4u 6u$(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-paper-plane"></span>
-								<h3><a href="social.html">History</a></h3>
+								<h3><a href="/departments/social">History</a></h3>
 								<p>Trickle-down economics is a scam; Truman was a great President; and Washington founded the great principles that we live in. But, did you know that?</p>
 							</section>
 							<section class="4u 6u(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-file"></span>
-								<h3><a href="english.html">English</a></h3>
+								<h3><a href="/departments/english">English</a></h3>
 								<p>To be or not to be; that is the question. Oh Romeo, Romeo, where art thou Romeo?</p>
 							</section>
 							<section class="4u$ 6u$(medium) 12u$(xsmall)">
 								<span class="icon alt major fa-lock"></span>
-								<h3><a href="cte.html">CTE</a></h3>
+								<h3><a href="/departments/cte">CTE</a></h3>
 								<p>Ways for students to learn relevant and real-world skills in a classroom setting.</p>
 							</section>
 						</div>
@@ -171,7 +171,7 @@
 					<br/>
 					<a href="#five" class="goto-next scrolly">Next</a>
 					<footer class="major">
-						
+
 					</footer>
 				</div>
 			</section>
@@ -197,7 +197,7 @@
 							</div>
 
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.164441163858!2d-73.8688006!3d40.6923759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ddc50dfc009%3A0x3061556c22ec23d!2s999+Jamaica+Ave%2C+Brooklyn%2C+NY+11208!5e0!3m2!1sen!2sus!4v1421948175279"  frameborder="0" style="border:0; height: 230px;"; class="4u$ 12u$(xsmall)"></iframe>
-								
+
 							<div class="12u$">
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" class="special" /></li>
