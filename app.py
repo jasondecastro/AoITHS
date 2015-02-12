@@ -73,7 +73,7 @@ def cte():
 
 @app.route('/lang')
 def forlang():
-  return render_template('forlang.html')
+  return render_template('foreign.html')
 
 @app.route('/social')
 def social():
