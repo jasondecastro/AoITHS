@@ -1,32 +1,17 @@
-# We need 'datetime' module for getting the current time
-# We need the 're' module to validate email address using regular expressions
-# We import 'Flask' to create an app,
-# 'request' to access the request data in each view
-# 'flash' to send messages to be displayed in the template
-# 'url_for' to get the URL for a given view function name
-# 'redirect' to redirect to a given URL
-# 'render_template' to render a template
-# 'flask_sqlalchemy' provides a wrapper over SQLAlchemy. Install
-# 'flask-sqlalchemy' package to use this.
-
 from datetime import datetime
-import re
-from flask import Flask, request, flash, url_for, redirect, render_template
+import re, smtplib
+from wtforms import Form, TextField, validators, TextAreaField
+from flask import Flask, jsonify, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
+from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-# Creates a Flask app and reads the settings from a
-# configuration file. We then connect to the database specified
-# in the settings file
 app = Flask(__name__)
 app.config.from_pyfile('app.cfg')
+app.config['DEBUG'] = True
 db = SQLAlchemy(app)
 
-
-# We are defining a 'Comments' model to store the comments the user
-# enters via the form.
 class Events(db.Model):
-  # Setting the table name and
-  # creating columns for various fields
   __tablename__ = 'events'
   id = db.Column('event_id', db.Integer, primary_key=True)
   title = db.Column(db.String(100))
@@ -35,12 +20,15 @@ class Events(db.Model):
   pub_date = db.Column(db.DateTime)
 
   def __init__(self, title, author, description):
-      # Initializes the fields with entered data
-      # and sets the published date to the current time
       self.title = title
       self.author = author
       self.description = description
       self.pub_date = datetime.now()
+
+class Submit(Form):
+    name = TextField()
+    email = TextField()
+    message = TextAreaField()
 
 def is_email_address_valid(author):
   """Validate email address using regular expression."""
@@ -48,12 +36,29 @@ def is_email_address_valid(author):
       return False
   return True
 
+def goGo(name, message, email):
+    whole = "%s <br><br><br><i>This message was from: <b>%s</b>. Their e-mail address is <b>%s</b>.</i>" % (message, name, email)
 
-# This is where the front-page will be
-# rendered.
-@app.route('/')
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = "New message from %s!" % name
+
+    part1 = MIMEText(whole, 'html')
+    msg.attach(part1)
+
+    o = smtplib.SMTP("smtp.gmail.com:587")
+    o.starttls()
+    o.login("jasonrdecastro@gmail.com", "imbeast14")
+    o.sendmail("jasonrdecastro@gmail.com", "jasonrdecastro@gmail.com", msg.as_string())
+    o.close()
+
+@app.route('/', methods=('GET', 'POST'))
 def landing():
-  return render_template('index.html')
+    form = Submit(request.form)
+    if request.method == 'POST':
+        goGo(form.name.data, form.message.data, form.email.data)
+        redirect('success')
+    return render_template('index.html', form=form)
+
 
 @app.route('/english')
 def english():
@@ -79,57 +84,40 @@ def forlang():
 def social():
   return render_template('social.html')
 
-
-# The default route for the app.
-# Displays the list of already entered comments
-# We are getting all the comments ordered in
-# descending order of pub_date and passing to the
-# template via 'comments' variable
 @app.route('/events')
 def show_all():
   return render_template('show_all.html', events=Events.query.order_by(Events.pub_date.desc()).all()  )
 
-
-# This view method responds to the URL /new for the methods GET and POST
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     if request.method == 'POST':
-        # The request is POST with some data, get POST data and validate it.
-        # The form data is available in request.form dictionary.
-        # Check if all the fields are entered. If not, raise an error
         if not request.form['title'] or not request.form['author'] or not request.form['description']:
             flash('Please enter all the fields', 'error')
 
-        # Check if the email address is valid. If not, raise an error
         elif is_email_address_valid(request.form['author']):
             flash('Please enter a valid email address', 'error')
 
         else:
-            # The data is valid. So create a new 'Comments' object
-            # to save to the database
             event = Events(request.form['title'],
                                request.form['author'],
                                request.form['description'])
 
-            # Add it to the SQLAlchemy session and commit it to
-            # save it to the database
             db.session.add(event)
             db.session.commit()
 
-            # Flash a success message
             flash('Event was successfully submitted')
 
-            # Redirect to the view showing all the comments
             return redirect(url_for('show_all'))
 
-    # Render the form template if the request is a GET request or
-    # the form validation failed
     return render_template('new.html')
 
+@app.route('/data')
+def names():
+    data = {
+        "first_names": ["John", "Jacob", "Julie", "Jennifer"],
+        "last_names": ["Connor", "Johnson", "Cloud", "Ray"]
+    }
+    return jsonify(data)
 
-# This is the code that gets executed when the current python file is
-# executed.
 if __name__ == '__main__':
-  # Run the app on all available interfaces on port 80 which is the
-  # standard port for HTTP
   app.run(debug=True)

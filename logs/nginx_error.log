@@ -1,0 +1,5 @@
+2015/02/26 13:59:26 [error] 16858#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 165.155.192.125, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "104.131.182.170", referrer: "http://104.131.182.170/"
+2015/02/26 14:55:52 [error] 16955#0: *42 connect() failed (111: Connection refused) while connecting to upstream, client: 173.245.54.79, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "www.aoiths.org", referrer: "https://www.google.com/"
+2015/02/26 14:55:52 [info] 16955#0: *42 client 173.245.54.79 closed keepalive connection
+2015/02/27 04:07:40 [info] 16954#0: *370 writev() failed (104: Connection reset by peer) while sending to client, client: 61.240.144.67, server: , request: "GET / HTTP/1.0", upstream: "http://127.0.0.1:8000/"
+2015/02/27 11:02:28 [info] 16954#0: *488 client 141.212.121.136 closed keepalive connection (104: Connection reset by peer)
