@@ -1,5 +1,6 @@
 from datetime import datetime
 import re, smtplib
+from confidential import EMAIL_PASSWORD
 from wtforms import Form, TextField, validators, TextAreaField
 from flask import Flask, jsonify, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -43,12 +44,12 @@ def goGo(name, message, email):
     msg['Subject'] = "New message from %s!" % name
 
     part1 = MIMEText(whole, 'html')
-    msg.attach(part1)
+    ms.attach(part1)
 
     o = smtplib.SMTP("smtp.gmail.com:587")
     o.starttls()
-    o.login("jasonrdecastro@gmail.com", "imbeast14")
-    o.sendmail("jasonrdecastro@gmail.com", "jasonrdecastro@gmail.com", msg.as_string())
+    o.login("web@aoiths.org", EMAIL_PASSWORD)
+    o.sendmail("web@aoiths.org", email, msg.as_string())
     o.close()
 
 @app.route('/', methods=('GET', 'POST'))
