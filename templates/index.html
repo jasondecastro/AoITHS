@@ -179,14 +179,13 @@
 					<form method="post" action="#">
 						<div class="row uniform 50%">
 							<div class="6u 12u$(xsmall)">
-								{{ form.name(type="text", name="name", id="name", placeholder="Name") }}
+								{{ form.name(type="text", id="name", placeholder="Name") }}
 							</div>
 							<div class="6u$ 12u$(xsmall)">
-								<input type="email" name="email" id="email" value="" placeholder="Email" />
+								{{ form.email(type="email", id="email", placeholder="Email") }}
 							</div>
-
 							<div class="8u 12u$(xsmall)">
-								<textarea name="message" id="message" placeholder="Enter your message" rows="6" style="resize: none"></textarea>
+								{{ form.message(id="message", placeholder="Enter your message", rows="6", style="resize: none") }}
 							</div>
 
 							<div class="12u$">
