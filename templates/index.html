@@ -174,19 +174,22 @@
 				<div class="container">
 					<header>
 						<h2>Have a question or just want to say hello?</h2>
-						<p>Put down your e-mail address below, and we'll get back to you as soon as possible.</p>
+						<p>Put down your name, e-mail address, and message. We'll get back to you as soon as possible.</p>
 					</header>
-					<form method="post" action="#">
+					<form method="post" action="">
 						<div class="row uniform 50%">
+							<!-- FOR JOVAN - PRIORITY: !!! -->
+							<!-- MAKE IT ALL IN ONE COLUMN, CENTERED -->
 							<div class="6u 12u$(xsmall)">
-								<input type="text" name="name" id="name" value="" placeholder="Name" />
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<input type="email" name="email" id="email" value="" placeholder="Email" />
+								{{ form.name(type="text", id="name", placeholder="Name") }}
 							</div>
 
-							<div class="8u 12u$(xsmall)">
-								<textarea name="message" id="message" placeholder="Enter your message" rows="6" style="resize: none"></textarea>
+							<div class="6u 12u$(xsmall)">
+								{{ form.email(type="text", id="email", placeholder="Email") }}
+							</div>
+
+							<div class="6u 12u$(xsmall)">
+								{{ form.message(id="message", placeholder="Enter your message", rows="6", style="resize: none") }}
 							</div>
 
 							<div class="12u$">
