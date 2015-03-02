@@ -44,7 +44,7 @@ def goGo(name, message, email):
     msg['Subject'] = "New message from %s!" % name
 
     part1 = MIMEText(whole, 'html')
-    ms.attach(part1)
+    msg.attach(part1)
 
     o = smtplib.SMTP("smtp.gmail.com:587")
     o.starttls()
