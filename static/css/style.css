@@ -1688,3 +1688,7 @@
   .department-info .major{
     float: right;
   }
+
+#four{
+  min-height: 10em;
+}
