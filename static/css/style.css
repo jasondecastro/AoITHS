@@ -622,6 +622,9 @@
 					color: #272833 !important;
 					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 				}
+                .icon.major:hover{
+                  background-color: #a6a6a6; 
+                }
 
 /* Image */
 
