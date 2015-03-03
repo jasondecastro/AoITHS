@@ -1682,3 +1682,9 @@
 	.style3 a, .style3 a:hover{
 		border: none;
 	}
+.department-info{
+  text-align: left;
+}
+  .department-info .major{
+    float: right;
+  }
