@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, '../')
+
 from datetime import datetime
 import re, smtplib
 from confidential import EMAIL_PASSWORD
