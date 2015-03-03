@@ -112,6 +112,10 @@ def new():
 
     return render_template('new.html')
 
+@app.route('/ev')
+def ev():
+    return render_template('elements.html')
+
 @app.route('/data')
 def names():
     data = {
