@@ -1682,13 +1682,15 @@
 	.style3 a, .style3 a:hover{
 		border: none;
 	}
+/*
 .department-info{
   text-align: left;
 }
-  .department-info .major{
-    float: right;
+*/
+  .department-info .fa-times{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 0.5em;
+    z-index: 2;
   }
-
-#four{
-  min-height: 10em;
-}
