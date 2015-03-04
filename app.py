@@ -115,9 +115,9 @@ def new():
 
     return render_template('new.html')
 
-@app.route('/ev')
-def ev():
-    return render_template('elements.html')
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html')
 
 @app.route('/data')
 def names():
