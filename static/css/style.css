@@ -623,7 +623,7 @@
 					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 				}
                 .icon.major:hover{
-                  background-color: #a6a6a6; 
+                  background-color: #e44c65; 
                 }
 
 /* Image */
@@ -1682,3 +1682,13 @@
 	.style3 a, .style3 a:hover{
 		border: none;
 	}
+.department-info{
+  text-align: left;
+}
+  .department-info .major{
+    float: right;
+  }
+
+#four{
+  min-height: 10em;
+}
