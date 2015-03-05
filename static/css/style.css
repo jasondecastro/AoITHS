@@ -1335,7 +1335,7 @@
 				}
 		.wrapper.style3{
 			background-color: #FFF;
-		} 
+		}
 
 		.wrapper.fade-down > .container {
 			-moz-transform: -moz-translate(0,0);
@@ -1674,7 +1674,7 @@
 	max-height: 50px;
 	margin: 0 5px;
 	 -webkit-filter: grayscale(100%); filter: grayscale(100%);
-	 opacity: 0.8;	
+	 opacity: 0.8;
 	}
 	.logo:hover{
 		opacity: 1;

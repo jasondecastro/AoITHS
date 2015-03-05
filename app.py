@@ -60,7 +60,7 @@ def landing():
     form = Submit(request.form)
     if request.method == 'POST':
         goGo(form.name.data, form.message.data, form.email.data)
-        redirect('success')
+        flash('Your message has been sent.')
     return render_template('index.html', form=form)
 
 

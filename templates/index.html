@@ -182,36 +182,50 @@
 		<!-- Five -->
 			<section id="five" class="wrapper style2 special fade">
 				<div class="container">
-					<header>
-						<h2>Have a question or just want to say hello?</h2>
-						<p>Put down your e-mail address below, and we'll get back to you as soon as possible.</p>
-					</header>
-					<form method="post" action="">
-						<div class="row uniform 50%">
-                            <div class="3u"></div>
-							<div class="12u$(small) 6u$">
-								{{ form.name(type="text", id="name", placeholder="Name") }}
-							</div>
-                            <div class="3u"></div>
-							<div class="12u$(small) 6u$">
-								{{ form.email(type="email", id="email", placeholder="Email") }}
-							</div>
-                            <div class="3u"></div>
-							<div class="12u$(small) 6u$">
-								{{ form.message(id="message", placeholder="Enter your message", rows="6", style="resize: none") }}
-							</div>
 
-							<div class="12u$">
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" class="special" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
+					{% with messages = get_flashed_messages() %}
+				  	{% if messages %}
+					    <header>
+					    	{% for message in messages %}
+									<h2>Message Sent</h2>
+									<p>Thank you for taking the time to send us a message!</p>
+					    	{% endfor %}
+					    </header>
+						{% else %}
+							<header>
+								<h2>Have a question or just want to say hello?</h2>
+								<p>Put down your e-mail address below, and we'll get back to you as soon as possible.</p>
+							</header>
+
+							<form method="post" action="#contact">
+								<div class="row uniform 50%">
+		                            <div class="3u"></div>
+									<div class="12u$(small) 6u$">
+										{{ form.name(type="text", id="name", placeholder="Name") }}
+									</div>
+		                            <div class="3u"></div>
+									<div class="12u$(small) 6u$">
+										{{ form.email(type="email", id="email", placeholder="Email") }}
+									</div>
+		                            <div class="3u"></div>
+									<div class="12u$(small) 6u$">
+										{{ form.message(id="message", placeholder="Enter your message", rows="6", style="resize: none") }}
+									</div>
+
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="special" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+				  	{% endif %}
+					{% endwith %}
 				</div>
               <div class="container message">
                 <h2>Message Sent</h2>
                 <p>Thank you for taking the time to send us a message!</p>
+								<p>You will be automatically redirected in 5 seconds.</p>
               </div>
 			</section>
 
