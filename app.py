@@ -52,7 +52,7 @@ def goGo(name, message, email):
     o = smtplib.SMTP("smtp.gmail.com:587")
     o.starttls()
     o.login("web@aoiths.org", EMAIL_PASSWORD)
-    o.sendmail("web@aoiths.org", email, msg.as_string())
+    o.sendmail(email, "web@aoiths.org", msg.as_string())
     o.close()
 
 @app.route('/', methods=('GET', 'POST'))
