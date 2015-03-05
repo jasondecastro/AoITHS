@@ -39,17 +39,25 @@ $('document').ready(function(){
     }
   }
   $('.department-info').hide();
+  $('.fa-times').hide();
   $('#four').find('section').on('click', function(){
     $(this).on('click', function(){
       $('.departments').fadeOut();
       $('.department-title').text(departments[$(this).attr('value')].title);
       $('.department-plus').text(departments[$(this).attr('value')].title_plus);
+      $('html, body').animate({
+	        'scrollTop': $('#four').offset().top
+	    }, 900, 'swing', function () {
+	        window.location = '/#four';
+	    });
       $('.deparment-info-text').empty().append(departments[$(this).attr('value')].info);
       $('.department-info').fadeIn();
+      $('.fa-times').fadeIn();
     });
   })
-  $('.department-info').find('.icon').on('click', function(){
+  $('#four').find('.fa-times').on('click', function(){
     $('.department-info').fadeOut();
+    $('.fa-times').fadeOut();
     $('.departments').fadeIn();
   })
 });
