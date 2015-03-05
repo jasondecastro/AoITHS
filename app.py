@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 
 class Events(db.Model):
   __tablename__ = 'events'
-  id = db.Column('event_id', db.Integer, primary_key=True)
+  id = db.Column('id', db.Integer, primary_key=True)
   title = db.Column(db.String(100))
   author = db.Column(db.String(100))
   description = db.Column(db.String(200))
@@ -115,7 +115,7 @@ def new():
 
     return render_template('new.html')
 
-@app.route('/gallery')
+@app.route('/gallery', methods=('GET', 'POST'))
 def gallery():
     return render_template('gallery.html')
 
