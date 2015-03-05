@@ -5,7 +5,7 @@ $('document').ready(function(){
     $('#five .container').fadeOut();
     $('.message').delay().fadeIn();
   })
-  
+
   var departments = {
     cte: {
       title: "Career and Technical Education",
@@ -31,7 +31,7 @@ $('document').ready(function(){
       title: "English",
       title_plus: "",
       info: '<div class="row uniform"><section class="4u 6u(medium) 12u$(xsmall)"><span class="icon alt major fa-file-o"></span> <h3><a>9th Grade</a></h3> <p>As 9th graders, we explore identity, consumerism, the community we live in. Students will read both fiction and nonfiction texts, write persuasive, expository, and argumentative responses based on the content taught. Not only do we focus on the students’ ability read and write, students are encouraged to question, discuss, and engage in academic discourse. We have at least 2 teachers in the room at all times to support our students’ academic and social needs.</p> </section> <section class="4u 6u$(medium) 12u$(xsmall)"> <span class="icon alt major fa-book"></span> <h3><a>10th Grade</a></h3> As 10th grader we read both fiction and non fiction. The two supplement each other and help students make connections between the ideas or concepts discussed in fiction texts to real world contexts. Simultaneously students are able to relate on a more personal basis by exploring the human factor of the questions posed through the stories we read. Tenth grade English also emphasizes writing basics. Students learn and practice outlining and expanding full essays and continue to practice the use of evidence to support claims. Discussion skills are also important as students learn to have evidence based, focused conversations; evaluating each other’s claims and responding to them. Students are graded on their participation and interaction, the work they turn in- not only longer assignments such as essays but also the work leading up to the essays, classwork, effort, progress, etc.</p> </section> <section class="4u$ 6u(medium) 12u$(xsmall)"> <span class="icon alt major fa-bookmark"></span> <h3><a>11th Grade</a></h3> <p>This is an 11th grade ELA course for students who have previously passed the English Regents Exam. Students will read a mixture of fiction and nonfiction texts although the emphasis will be on non-fiction. The class will focus on sharpening reading and writing skills and in particular, on writing argumentative essays. The thorough and thoughtful completion of all major class projects which will require the writing of essays; class participation and preparation for class work.</p> </section> </div>'
-    }, 
+    },
     math: {
       title: "Math",
       title_plus: "",
@@ -41,8 +41,8 @@ $('document').ready(function(){
   $('.department-info').hide();
   $('.fa-times').hide();
   $('#four').find('section').on('click', function(){
-    $(this).on('click', function(){
-      $('.departments').fadeOut();
+    //$(this).on('click', function(){
+      $('.departments').fadeOut('fast');
       $('.department-title').text(departments[$(this).attr('value')].title);
       $('.department-plus').text(departments[$(this).attr('value')].title_plus);
       $('html, body').animate({
@@ -51,13 +51,13 @@ $('document').ready(function(){
 	        window.location = '/#four';
 	    });
       $('.deparment-info-text').empty().append(departments[$(this).attr('value')].info);
-      $('.department-info').fadeIn();
-      $('.fa-times').fadeIn();
-    });
+      $('.department-info').fadeIn('fast');
+      $('.fa-times').fadeIn('fast');
+    //)};
   })
   $('#four').find('.fa-times').on('click', function(){
-    $('.department-info').fadeOut();
-    $('.fa-times').fadeOut();
-    $('.departments').fadeIn();
+    $('.department-info').fadeOut('fast');
+    $('.fa-times').fadeOut('fast');
+    $('.departments').fadeIn('fast');
   })
 });

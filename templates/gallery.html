@@ -66,18 +66,9 @@
 						<section>
 							<div class="box alt">
 								<div class="row 50% uniform">
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
+                  {% for image in images %}
+									   <div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" /></span></div>
+                  {% endfor %}
 								</div>
 							</div>
 						</section>
