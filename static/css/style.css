@@ -622,7 +622,11 @@
 					color: #272833 !important;
 					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 				}
-                .icon.major:hover{
+                .departments .icon.major:hover{
+                  background-color: #e44c65; 
+                }
+                
+                .icon.major.fa-times:hover{
                   background-color: #e44c65; 
                 }
 
@@ -1687,13 +1691,19 @@
   text-align: left;
 }
 */
-  .department-info .fa-times{
+  .fa-times{
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -5em;
+    right: -1em;
     font-size: 0.5em;
-    z-index: 2;
+    z-index: 5;
   }
+  @media(max-width: 300em){
+    .fa-times{
+      float: right; 
+    }
+  }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 #four{
@@ -1701,3 +1711,8 @@
 }
 =======
 >>>>>>> 98b9b322191e30501ba4c4ed14b51fb060d17ee1
+=======
+#four{
+ height: 60em; 
+}
+>>>>>>> 9439d1ee90e15e21180fc610f73602acbd6e523b
