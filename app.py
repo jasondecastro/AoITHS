@@ -24,7 +24,7 @@ db = SQLAlchemy(app)
 DATA_DIR = 'static/uploads'
 KEEP_ALIVE_DELAY = 25
 MAX_IMAGE_SIZE = 800, 600
-MAX_IMAGES = 10
+MAX_IMAGES = 100
 MAX_DURATION = 300
 
 class Events(db.Model):
@@ -235,7 +235,7 @@ def home():
         if i >= MAX_IMAGES:
             os.unlink(path)
             continue
-        images.append('<div><img alt="User uploaded image" src="{0}" /></div>'
+        images.append('<div class="row uniform"><div class="4u 6u(medium) 12u$(xsmall)"><img alt="User uploaded image" src="{0}" /></div><div class="4u 6u(medium) 12u$(xsmall)"><input type="submit" value="SHIT"></div></div>'
                       .format(path))
     return render_template('add_photo.html') % (MAX_IMAGES, '\n'.join(images))
 

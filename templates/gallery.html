@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
   </noscript>
+  <style>
+    #resize {
+      width: 390px;
+      height: 260px;
+    }
+  </style>
   <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
   <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
@@ -67,7 +73,7 @@
 							<div class="box alt">
 								<div class="row 50% uniform">
                   {% for image in images %}
-									   <div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" /></span></div>
+									   <div class="4u  6u(xsmall)"><span class="image fit"><img id="resize" src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" /></span></div>
                   {% endfor %}
 								</div>
 							</div>
@@ -87,7 +93,7 @@
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; Academy of Innovative Technology</li>
 				</ul>
 			</footer>
 
