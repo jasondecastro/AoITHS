@@ -1703,16 +1703,9 @@
       float: right; 
     }
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-#four{
-  min-height: 10em;
-}
-=======
->>>>>>> 98b9b322191e30501ba4c4ed14b51fb060d17ee1
-=======
 #four{
  height: 60em; 
 }
->>>>>>> 9439d1ee90e15e21180fc610f73602acbd6e523b
+a{
+ color: transparent;
+}
