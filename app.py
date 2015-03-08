@@ -71,7 +71,7 @@ def goGo(name, message, email, ip):
 def landing():
     form = Submit(request.form)
     if request.method == 'POST':
-        goGo(form.name.data, form.message.data, form.email.data, request.environ['REMOTE_ADDR'])
+        goGo(form.name.data, form.message.data, form.email.data, request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
         flash('Your message has been sent.')
     return render_template('index.html', form=form)
 
