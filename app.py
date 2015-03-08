@@ -248,14 +248,9 @@ def gallery():
     images = glob.glob("./static/uploads/*.jpg")
     return render_template('gallery.html', images=images)
 
-@app.route('/delete_photos/<filename>')
+@app.route('/delete_photo/<filename>')
 def download_file(filename):
-    file_path = DATA_DIR
-    file_handle = open(file_path, 'r')
-    @after_this_request
-    def remove_file(response):
-        os.remove(file_path)
-        return response
+    os.remove(DATA_DIR+"/")
     return send_file(file_handle)
 
 if __name__ == '__main__':
