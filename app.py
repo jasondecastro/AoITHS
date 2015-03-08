@@ -52,8 +52,8 @@ def is_email_address_valid(author):
       return False
   return True
 
-def goGo(name, message, email):
-    whole = "%s <br><br><br><i>This message was from: <b>%s</b>. Their e-mail address is <b>%s</b>.</i>" % (message, name, email)
+def goGo(name, message, email, ip):
+    whole = "%s <br><br><br><i>This message was from: <b>%s</b>. Their e-mail address is: <b>%s</b>. The IP address is: <b>%s</b></i>" % (message, name, email, ip)
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "New message from %s!" % name
@@ -71,7 +71,7 @@ def goGo(name, message, email):
 def landing():
     form = Submit(request.form)
     if request.method == 'POST':
-        goGo(form.name.data, form.message.data, form.email.data)
+        goGo(form.name.data, form.message.data, form.email.data, request.environ['REMOTE_ADDR'])
         flash('Your message has been sent.')
     return render_template('index.html', form=form)
 
