@@ -246,13 +246,8 @@ def home():
         if i >= MAX_IMAGES:
             os.unlink(path)
             continue
-<<<<<<< HEAD
         images.append('<div class="row uniform"><div class="4u 6u(medium) 12u$(xsmall)"><img alt="User uploaded image" style="border-radius:4px; max-width:500; max-height:500;" src="{0}" /><br><input style="float:right;" class="btn btn-primary" type="submit" value="Delete"></div></div>'
                       .format(path.replace('/static/', '../../static')))
-=======
-        images.append('<div class="col-xs-6 col-md-3" style="margin-bottom: 10px;"><a class="thumbnail"><img src="{0}" alt="User uploaded image" style="height: 180px"></a><input type="submit" value="Delete" class="btn btn-danger"/></div>'
-                      .format(path))
->>>>>>> 4471dbf59623b34e5c74c5444e385c3c3ea74d71
     return render_template('add_photo.html') % (MAX_IMAGES, '\n'.join(images))
 
 @app.route('/uploads/<filename>')
