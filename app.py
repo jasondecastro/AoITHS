@@ -61,7 +61,7 @@ class Users(db.Model):
   last_logged_on = db.Column(db.Numeric(200))
   ip_reg = db.Column(db.String(100))
   ip_last = db.Column(db.String(100))
-  rank = db.Column(db.Integer(10))
+  rank = db.Column(db.Integer())
 
   def __init__(self, email, password, last_logged_on, ip_reg, ip_last, rank):
       self.email = email
