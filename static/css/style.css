@@ -312,7 +312,7 @@
 		header.major:after {
 			background: #e44c65;
 			content: '';
-			display: inline-block;
+		/*	display: inline-block; */
 			height: 0.2em;
 			max-width: 20em;
 			width: 75%;
@@ -623,11 +623,11 @@
 					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 				}
                 .departments .icon.major:hover{
-                  background-color: #e44c65; 
+                  background-color: #e44c65;
                 }
-                
+
                 .icon.major.fa-times:hover{
-                  background-color: #e44c65; 
+                  background-color: #e44c65;
                 }
 
 /* Image */
@@ -1700,11 +1700,11 @@
   }
   @media(max-width: 300em){
     .fa-times{
-      float: right; 
+      float: right;
     }
   }
 #four{
- height: 60em; 
+ height: 60em;
 }
 a{
  color: transparent;

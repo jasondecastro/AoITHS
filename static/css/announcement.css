@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'AnagramRegular';
+    src: url('Anagram-webfont.eot');
+    src: url('Anagram-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Anagram-webfont.woff') format('woff'),
+         url('Anagram-webfont.ttf') format('truetype'),
+         url('Anagram-webfont.svg#AnagramRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.notification-bar {
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+.notification-text {
+	background-color: #2980B9;
+	padding: 15px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+
+	-webkit-animation: initiate 350ms ease;
+	-moz-animation: initiate 350ms ease;
+	-o-animation: initiate 350ms ease;
+	animation: initiate 350ms ease;
+}
+.notification-bar input {
+	display: none;
+}
+.notification-bar label {
+	cursor: pointer;
+	color: #fff;
+	position: absolute;
+	z-index: 5;
+	display: inline-block;
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.notification-bar label[for=hide] {
+	
+	right: 15px;
+	top: 11px;
+
+	width: 24px;
+	height: 24px;
+	background: url('../img/close.png') no-repeat center center;
+
+	-webkit-animation: initiate 350ms ease;
+	-moz-animation: initiate 350ms ease;
+	-o-animation: initiate 350ms ease;
+	animation: initiate 350ms ease;
+}
+.notification-bar label[for=show] {
+	width: 45px;
+	height: 50px;
+	border-radius: 0px 0px 3px 3px;
+	right: 10px;
+	background: url('../img/show.png') no-repeat center center #2980B9;
+}
+
+/* Function */
+.notification-bar input[value=show]:checked ~ label[for=show],
+.notification-bar input[value=hide]:checked ~ label[for=hide],
+.notification-bar input[value=hide]:checked ~ .notification-text {
+	-webkit-transition: ease 350ms;
+	-moz-transition: ease 350ms;
+	-o-transition: ease 350ms;
+	transition: ease 350ms;
+	
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.notification-bar input[value=hide]:checked ~ label[for=show],
+.notification-bar input[value=show]:checked ~ label[for=hide],
+.notification-bar input[value=show]:checked ~ .notification-text {
+	-webkit-transition: ease 350ms;
+	-moz-transition: ease 350ms;
+	-o-transition: ease 350ms;
+	transition: ease 350ms;
+	
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+/* Inital Animation */
+@-webkit-keyframes initiate {
+ 	0% {
+		-webkit-transform:translateY(-100%);
+ 	}
+ 	50% {
+ 		-webkit-transform:translateY(-50%);
+ 	}
+ 	100% {
+ 		-webkit-transform:translateY(0%);
+ 	} 
+}
+@-moz-keyframes initiate {
+ 	0% {
+		-moz-transform:translateY(-100%);
+ 	}
+ 	50% {
+ 		-moz-transform:translateY(-50%);
+ 	}
+ 	100% {
+ 		-moz-transform:translateY(0%);
+ 	} 
+}
+@-o-keyframes initiate {
+ 	0% {
+		-o-transform:translateY(-100%);
+ 	}
+ 	50% {
+ 		-o-transform:translateY(-50%);
+ 	}
+ 	100% {
+ 		-o-transform:translateY(0%);
+ 	} 
+}
+@keyframes initiate {
+ 	0% {
+		transform:translateY(-100%);
+ 	}
+ 	50% {
+ 		transform:translateY(-50%);
+ 	}
+ 	100% {
+ 		transform:translateY(0%);
+ 	} 
+}

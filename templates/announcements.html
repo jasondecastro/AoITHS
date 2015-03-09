@@ -65,8 +65,8 @@
 				<ul class="nav nav-pills nav-stacked">
           <li><a href="/adm/dashboard">Home</a></li>
 					<li><a href="/adm/dashboard/photos">Add Photo</a></li>
-					<li class="active"><a href="/adm/dashboard/events">Add Event</a></li>
-					<li><a href="/adm/dashboard/announcements">Add Announcement</a></li>
+					<li><a href="/adm/dashboard/events">Add Event</a></li>
+					<li class="active"><a href="/adm/dashboard/announcements">Add Announcement</a></li>
 					<li><a href="#">Add Blog</a></li>
 					<li><a href="#">Check Mail</a></li>
 				</ul>
@@ -74,7 +74,7 @@
 			<div class="col-md-10 content">
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
-	                    Add Events
+	                    Add Announcements
 	                </div>
 	                <div class="panel-body">
                     {%- for category, message in get_flashed_messages(with_categories=true) %}
@@ -85,23 +85,20 @@
 
                     <form class="form-horizontal" action="" method="post">
                       <div class="form-group">
-                        <label for="name" class="col-lg-2 control-label">Title</label>
+                        <label for="name" class="col-lg-2 control-label">Announcement</label>
                         <div class="col-lg-2">
-                          <input type="text" class="form-control" name="title" placeholder="Title">
+                          <input type="text" style="width: 400px;" class="form-control" name="message" placeholder="Description">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="email" class="col-lg-2 control-label">Author</label>
+                        <label for="email" class="col-lg-2 control-label">Active</label>
                         <div class="col-lg-2">
-                          <input type="text" class="form-control" name="author" placeholder="Name">
+                          <div id="radios1" class="btn-group view-opt-btn-group" data-toggle="buttons-radio">
+                            <input type="radio" class="btn active" name="on" value="1">&nbsp;&nbsp;Yes<br>
+                            <input type="radio" class="btn" name="off" value="0">&nbsp;&nbsp;No
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="comment" class="col-lg-2 control-label">Description</label>
-                        <div class="col-lg-2">
-                          <textarea class="form-control" name="description" placeholder="Desc"></textarea>
-                        </div>
-                      </div>
+                      </d
                       <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-2">
                           <input type="submit" class="btn btn-primary" value="Submit">
@@ -111,19 +108,17 @@
                     <table class="table" style="width: 50%;">
                 <thead>
                         <tr>
-                          <th>Title</th>
-                          <th>Author</th>
-                          <th>Description</th>
+                          <th>Announcement</th>
+                          <th>Active</th>
                           <th>Date Added</th>
                         </tr>
               	</thead>
               	<tbody>
-                        {% for comment in events %}
+                        {% for announcement in announcements %}
                         <tr>
-                          <td>{{ comment.title }}</td>
-                          <td>{{ comment.author }}</td>
-                          <td>{{ comment.description }}</td>
-                          <td>{{ comment.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>
+                          <td>{{ announcement.message }}</td>
+                          <td>{{ announcement.active }}</td>
+                          <td>{{ announcement.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>
                         </tr>
                         {% endfor %}
                       </tbody>
