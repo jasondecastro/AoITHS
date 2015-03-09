@@ -1,0 +1,148 @@
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: argument -b/--bind: expected one argument
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+sudo: no tty present and no askpass program specified
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
+
+Error: Error: '/home/www/AoITHS/logs/gunicorn_error.log' isn't writable [IOError(13, 'Permission denied')]
+
