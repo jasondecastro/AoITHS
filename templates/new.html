@@ -1,46 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">AoITHS Events</h3>
-      </div>
-      <hr/>
-      {%- for category, message in get_flashed_messages(with_categories=true) %}
-      <div class="alert alert-danger">
-        {{ message }}
-      </div>
-      {%- endfor %}
+<html>
+	<head>
+		<title>AoITHS ~ Housekeeping</title>
+		<link rel="shortcut icon" href="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-3d-buttons-icons-alphanumeric/070542-glossy-black-3d-button-icon-alphanumeric-letter-aa.png">
+		<style>
+			h1.page-header {
+			    margin-top: -5px;
+			}
 
-      <form class="form-horizontal" action="{{ request.path }}" method="post">
-        <div class="form-group">
-          <label for="name" class="col-lg-2 control-label">Title</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" name="title" placeholder="Title">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email" class="col-lg-2 control-label">Author</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" name="author" placeholder="Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="comment" class="col-lg-2 control-label">Description</label>
-          <div class="col-lg-2">
-            <textarea class="form-control" name="description" placeholder="Desc"></textarea>
-          </div>
-        </div>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-offset-2 col-lg-2">
-            <input type="submit" class="btn btn-primary" value="Submit">
-          </div>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
+			.sidebar {
+			    padding-left: 0;
+			}
+
+			.main-container {
+			    background: #FFF;
+			    padding-top: 15px;
+			    margin-top: -20px;
+			}
+
+			.footer {
+			    width: 100%;
+			}
+		</style>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">
+					Academy of Innovative Technology
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://aoiths.org" target="_blank">Visit Site</a></li>
+					<li class="dropdown ">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							Account
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li class="dropdown-header">SETTINGS</li>
+								<li class=""><a href="#">Other Link</a></li>
+								<li class=""><a href="#">Other Link</a></li>
+								<li class=""><a href="#">Other Link</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="container-fluid main-container">
+			<div class="col-md-2 sidebar">
+				<ul class="nav nav-pills nav-stacked">
+          <li><a href="/admin/dashboard">Home</a></li>
+					<li><a href="/admin/dashboard/photos">Add Photo</a></li>
+					<li class="active"><a href="/admin/dashboard/events">Add Event</a></li>
+					<li><a href="#">Add Announcement</a></li>
+					<li><a href="#">Add Blog</a></li>
+					<li><a href="#">Check Mail</a></li>
+				</ul>
+			</div>
+			<div class="col-md-10 content">
+	            <div class="panel panel-default">
+	                <div class="panel-heading">
+	                    Add Events
+	                </div>
+	                <div class="panel-body">
+                    {%- for category, message in get_flashed_messages(with_categories=true) %}
+                    <div class="alert alert-success">
+                      {{ message }}
+                    </div>
+                    {%- endfor %}
+
+                    <form class="form-horizontal" action="" method="post">
+                      <div class="form-group">
+                        <label for="name" class="col-lg-2 control-label">Title</label>
+                        <div class="col-lg-2">
+                          <input type="text" class="form-control" name="title" placeholder="Title">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="col-lg-2 control-label">Author</label>
+                        <div class="col-lg-2">
+                          <input type="text" class="form-control" name="author" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="comment" class="col-lg-2 control-label">Description</label>
+                        <div class="col-lg-2">
+                          <textarea class="form-control" name="description" placeholder="Desc"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-2">
+                          <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                      </div>
+                    </form>
+                    <table class="table" style="width: 50%;">
+                <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Author</th>
+                          <th>Description</th>
+                          <th>Date Added</th>
+                        </tr>
+              	</thead>
+              	<tbody>
+                        {% for comment in events %}
+                        <tr>
+                          <td>{{ comment.title }}</td>
+                          <td>{{ comment.author }}</td>
+                          <td>{{ comment.description }}</td>
+                          <td>{{ comment.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+	                </div>
+
+
+	            </div>
+            <!-- add this later if something breaks</div>-->
+			</div>
+			<footer class="pull-left footer">
+				<p class="col-md-12">
+					<hr class="divider">
+					&copy; <a href="http://aoiths.org">Academy of Innovative Technology</a>
+				</p>
+			</footer>
+		</div>
+<html>

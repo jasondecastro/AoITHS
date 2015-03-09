@@ -5,7 +5,7 @@ from datetime import datetime
 import re, smtplib, os, time, json, glob
 from confidential import EMAIL_PASSWORD
 from wtforms import Form, TextField, validators, TextAreaField
-from flask import Flask, jsonify, request, flash, url_for, redirect, render_template, send_from_directory
+from flask import Flask, sessions, Response, jsonify, request, flash, url_for, redirect, render_template, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from email.MIMEText import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -29,7 +29,7 @@ MAX_DURATION = 300
 
 class Events(db.Model):
   __tablename__ = 'events'
-  id = db.Column('id', db.Integer, primary_key=True)
+  id = db.Column('event_id', db.Integer, primary_key=True)
   title = db.Column(db.String(100))
   author = db.Column(db.String(100))
   description = db.Column(db.String(200))
@@ -40,6 +40,39 @@ class Events(db.Model):
       self.author = author
       self.description = description
       self.pub_date = datetime.now()
+
+class Users(db.Model):
+  __tablename__ = 'users'
+  id = db.Column('user_id', db.Integer, primary_key=True)
+  email = db.Column(db.String(100), unique=True)
+  password = db.Column(db.String(100))
+  last_logged_on = db.Column(db.Numeric(200))
+  ip_reg = db.Column(db.String(100))
+  ip_last = db.Column(db.String(100))
+  rank = db.Column(db.Integer(10))
+
+  def __init__(self, email, password, last_logged_on, ip_reg, ip_last, rank):
+      self.email = email
+      self.password = password
+      self.last_logged_on = last_logged_on #do something with datetime
+      self.ip_reg = datetime.now() #save ip when they register
+      self.ip_last = ip_last #get ip when they log in
+      self.rank = rank
+
+  def is_authenticated(self):
+      return True
+
+  def is_active(self):
+      return True
+
+  def is_anonymous(self):
+      return False
+
+  def get_id(self):
+      return unicode(self.id)
+
+  def __repr__(self):
+      return '<User %r>' % (self.username)
 
 class Submit(Form):
     name = TextField()
@@ -71,40 +104,15 @@ def goGo(name, message, email, ip):
 def landing():
     form = Submit(request.form)
     if request.method == 'POST':
-        goGo(form.name.data, form.message.data, form.email.data, request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
+        goGo(form.name.data, form.message.data, form.email.data, request.remote_addr)
         flash('Your message has been sent.')
     return render_template('index.html', form=form)
-
-
-@app.route('/english')
-def english():
-  return render_template('english.html')
-
-@app.route('/math')
-def math():
-  return render_template('math.html')
-
-@app.route('/science')
-def science():
-  return render_template('science.html')
-
-@app.route('/cte')
-def cte():
-  return render_template('cte.html')
-
-@app.route('/lang')
-def forlang():
-  return render_template('foreign.html')
-
-@app.route('/social')
-def social():
-  return render_template('social.html')
 
 @app.route('/events')
 def show_all():
   return render_template('show_all.html', events=Events.query.order_by(Events.pub_date.desc()).all()  )
 
-@app.route('/new', methods=['GET', 'POST'])
+@app.route('/admin/dashboard/events', methods=['GET', 'POST'])
 def new():
     if request.method == 'POST':
         if not request.form['title'] or not request.form['author'] or not request.form['description']:
@@ -121,11 +129,11 @@ def new():
             db.session.add(event)
             db.session.commit()
 
-            flash('Event was successfully submitted')
+            flash('Event was successfully created')
 
-            return redirect(url_for('show_all'))
+            return redirect(url_for('new'))
 
-    return render_template('new.html')
+    return render_template('new.html', events=Events.query.order_by(Events.pub_date.desc()).all())
 
 @app.route('/data')
 def names():
@@ -212,16 +220,19 @@ def post():
             broadcast(message)  # Notify subscribers of completion
     except Exception as e:  # Output errors
         return '{0}'.format(e)
-    return 'success'
+    return '<b>success</b><div class="alert alert-success">You have added a new photo!</div>'
 
+#updating page in realtime is broken, fix l8r
+#@app.route('/stream')
+#def stream():
+    #return Response(event_stream(request.access_route[0]),
+                          #mimetype='text/event-stream')
 
-@app.route('/stream')
-def stream():
-    return Response(event_stream(request.access_route[0]),
-                          mimetype='text/event-stream')
+@app.route('/admin/dashboard/static/uploads/<filename>')
+def reroute_image(filename):
+    return redirect('/static/uploads/'+filename)
 
-
-@app.route('/add_photo')
+@app.route('/admin/dashboard/photos')
 def home():
     image_infos = []
     for filename in os.listdir(DATA_DIR):
@@ -235,8 +246,8 @@ def home():
         if i >= MAX_IMAGES:
             os.unlink(path)
             continue
-        images.append('<div class="row uniform"><div class="4u 6u(medium) 12u$(xsmall)"><img alt="User uploaded image" src="{0}" /></div><div class="4u 6u(medium) 12u$(xsmall)"><input type="submit" value="SHIT"></div></div>'
-                      .format(path))
+        images.append('<div class="row uniform"><div class="4u 6u(medium) 12u$(xsmall)"><img alt="User uploaded image" style="border-radius:4px; max-width:500; max-height:500;" src="{0}" /><br><input style="float:right;" class="btn btn-primary" type="submit" value="Delete"></div></div>'
+                      .format(path.replace('/static/', '../../static')))
     return render_template('add_photo.html') % (MAX_IMAGES, '\n'.join(images))
 
 @app.route('/uploads/<filename>')
@@ -252,6 +263,19 @@ def gallery():
 def download_file(filename):
     os.remove(DATA_DIR+"/")
     return send_file(file_handle)
+
+@app.route('/admin/dashboard', methods=('GET','POST'))
+def dashboard():
+    return render_template('admin.html')
+
+@app.route('/admin')
+def portal():
+    #check if session is active or not, etc.
+    return redirect('/admin/login')
+
+@app.route('/admin/login')
+def admin_login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
   app.run(debug=True)

@@ -95,32 +95,67 @@
     </style>
     <script>
         function showPassword() {
-        
+
         var key_attr = $('#key').attr('type');
-        
+
         if(key_attr != 'text') {
-            
+
             $('.checkbox').addClass('show');
             $('#key').attr('type', 'text');
-            
+
         } else {
-            
+
             $('.checkbox').removeClass('show');
             $('#key').attr('type', 'password');
-            
+
         }
-        
+
       }
     </script>
   </head>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          Academy of Innovative Technology
+        </a>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://aoiths.org" target="_blank">Visit Site</a></li>
+          <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              Account
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">SETTINGS</li>
+                <li class=""><a href="#">Other Link</a></li>
+                <li class=""><a href="#">Other Link</a></li>
+                <li class=""><a href="#">Other Link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <section id="login">
         <div class="container">
         	<div class="row">
         	    <div class="col-xs-12">
             	    <div class="form-wrap">
-                    <h1>Log in with your Raven private beta account</h1>
-                        <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <h1>Log in with your AoITHS administrative account.</h1>
+                        <form role="form" action="" method="post" id="login-form" autocomplete="off">
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
@@ -135,7 +170,7 @@
                             </div>-->
                             <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
                         </form>
-                           
+
                         <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Don't have an account?</a>
                         <hr>
             	    </div>
@@ -170,8 +205,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p>© Raven - 2015</p>
-                    
+                    <p>© Academy of Innovative Technology</p>
+
                 </div>
             </div>
         </div>
