@@ -235,7 +235,7 @@ def home():
         if i >= MAX_IMAGES:
             os.unlink(path)
             continue
-        images.append('<div class="col-xs-6 col-md-3" style="margin-bottom: 10px;"><a href="#" class="thumbnail"><img src="{0}" alt="User uploaded image" style="height: 180px"></a><input type="submit" value="SHIT"/></div>'
+        images.append('<div class="col-xs-6 col-md-3" style="margin-bottom: 10px;"><a class="thumbnail"><img src="{0}" alt="User uploaded image" style="height: 180px"></a><input type="submit" value="Delete" class="btn btn-danger"/></div>'
                       .format(path))
     return render_template('add_photo.html') % (MAX_IMAGES, '\n'.join(images))
 
