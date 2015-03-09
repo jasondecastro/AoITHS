@@ -81,7 +81,7 @@
           <div class="row 50% uniform">
             {% for image in images %}
             <a href="{{ url_for('static', filename=image.replace('static/','')) }}">
-              <div class="4u  6u(xsmall)"><img id="resize" src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" />
+              <div class="image"><img id="resize" src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" />
               </div>
             </a>
             {% endfor %}
