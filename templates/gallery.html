@@ -5,6 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+
 <head>
   <title>Academy of Innovative Technology</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -19,86 +20,111 @@
   <script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/skel-layers.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='fancybox/source/jquery.fancybox.pack.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='fancybox/source/helpers/jquery.fancybox-buttons.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='fancybox/lib/jquery.mousewheel-3.0.6.pack.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='fancybox/source/helpers/jquery.fancybox-buttons.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='fancybox/source/helpers/jquery.fancybox-thumbs.css') }}" type="text/css" media="screen" />
   <noscript>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
   </noscript>
+  <style>
+    #resize {
+      width: 390px;
+      height: 260px;
+      border-radius: 6px;
+    }
+  </style>
   <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
   <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
-  <body>
 
-    <!-- Header -->
-      <header id="header">
-        <h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
-        <nav id="nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li>
-              <a href="#four" class="scrolly">Departments</a>
-              <ul>
-                <li><a href="cte">CTE</a></li>
-                <li><a href="english">English</a></li>
-                <li><a href="math">Mathematics</a></li>
-                <li><a href="science">Science</a></li>
-                <li><a href="lang">Foreign Language</a></li>
-                <li><a href="social">History</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#five" class="scrolly">Contact</a></li>
-          </ul>
-        </nav>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/#four" class="scrolly">Departments</a>
+        </li>
+        <li><a href="#">Events</a>
+        </li>
+        <li><a href="#">Blog</a>
+        </li>
+        <li><a href="/#five" class="scrolly">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <h2>Gallery</h2>
+        <p>There are a bunch of pictures of us, take a look. Please view our <a href="#" style="color:#e44c65;">copyright policies</a>.</p>
       </header>
 
-		<!-- Main -->
-			<div id="main" class="wrapper style1">
-				<div class="container">
-					<header class="major">
-						<h2>Gallery</h2>
-						<p>Ipsum dolor feugiat aliquam tempus sed magna lorem consequat accumsan</p>
-					</header>
 
+      <!-- Image -->
+      <section>
+        <div class="box alt">
+          <div class="row 50% uniform">
+            {% for image in images %}
+            <a href="{{ url_for('static', filename=image.replace('static/','')) }}">
+              <div class="image"><img id="resize" src="{{ url_for('static', filename=image.replace('static/','')) }}" alt="" />
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
 
-					<!-- Image -->
-						<section>
-							<div class="box alt">
-								<div class="row 50% uniform">
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u  6u(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-									<div class="4u$ 6u$(xsmall)"><span class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span></div>
-								</div>
-							</div>
-						</section>
+    </div>
+  </div>
 
-				</div>
-			</div>
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a>
+      </li>
+      <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a>
+      </li>
+      <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a>
+      </li>
+      <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a>
+      </li>
+      <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+      </li>
+      <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a>
+      </li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; Academy of Innovative Technology</li>
+    </ul>
+  </footer>
+  <script>
+    $(document).ready(function () {
+      $("a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").attr('rel', 'gallery')
+        .fancybox({
+          helpers:  {
+            thumbs : {
+              width: 50,
+              height: 50
+            }
+          }
+        });
+    });
+  </script>
+</body>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
-
-	</body>
 </html>
