@@ -21,21 +21,24 @@
 		<script src="{{ url_for('static', filename='js/init.js') }}"></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 		<noscript>
-			<style>
-				#blackBar{
-				   position:absolute;
-				   top:0;
-					 margin: 0 auto;
-				   left:0;
-				   width:100%;
-				   height:60px;
-				   background-color:white;
-				}
-			</style>
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
 		</noscript>
+      <style>
+        #blackBar {
+            position: absolute;
+            top: 60px;
+            margin: 0 auto;
+            right: 20px;
+            width: 250px;
+            max-height: 300px;
+            background-color: rgba(39, 40, 51, .5);
+            border-radius: 5px;
+            padding: 10px;
+            line-height: 1.5em;
+          }
+		</style>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -44,7 +47,11 @@
 		<!-- Header -->
 			<header id="header">
 				<h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
-				<div id="blackBar"><center><p style="background-color:white; color:black; padding: 4px; word-break: break-all; max-width: 150px;">foijweofijewiopfjoepwijfoipewjfiopjewoifjpoewijfopiewjfpiejwpofijeowsajdoi</p></center></div>
+				<div id="blackBar">
+                  <header class="major" style="margin: 0"><h4>Announcements</h4></header>
+                  <p>School is closed for students on XX/XX/XXXX</p>
+                  <p><strong>Attention Students</strong> - Next Week is Spring Break</p>
+              </div>
 
 				<nav id="nav">
 					<ul>
