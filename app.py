@@ -41,6 +41,18 @@ class Events(db.Model):
       self.description = description
       self.pub_date = datetime.now()
 
+class Announcements(db.Model):
+  __tablename__ = 'announcements'
+  id = db.Column('announcement_id', db.Integer, primary_key=True)
+  message = db.Column(db.String(100))
+  active = db.Column(db.Integer)
+  pub_date = db.Column(db.DateTime)
+
+  def __init__(self, message, active):
+      self.message = message
+      self.active = active
+      self.pub_date = datetime.now()
+
 class Users(db.Model):
   __tablename__ = 'users'
   id = db.Column('user_id', db.Integer, primary_key=True)
@@ -49,7 +61,7 @@ class Users(db.Model):
   last_logged_on = db.Column(db.Numeric(200))
   ip_reg = db.Column(db.String(100))
   ip_last = db.Column(db.String(100))
-  rank = db.Column(db.Integer(10))
+  rank = db.Column(db.Integer())
 
   def __init__(self, email, password, last_logged_on, ip_reg, ip_last, rank):
       self.email = email
@@ -106,13 +118,13 @@ def landing():
     if request.method == 'POST':
         goGo(form.name.data, form.message.data, form.email.data, request.remote_addr)
         flash('Your message has been sent.')
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, announcements=Announcements.query.order_by(Announcements.pub_date.desc()).all())
 
 @app.route('/events')
 def show_all():
   return render_template('show_all.html', events=Events.query.order_by(Events.pub_date.desc()).all()  )
 
-@app.route('/admin/dashboard/events', methods=['GET', 'POST'])
+@app.route('/adm/dashboard/events', methods=['GET', 'POST'])
 def new():
     if request.method == 'POST':
         if not request.form['title'] or not request.form['author'] or not request.form['description']:
@@ -134,6 +146,31 @@ def new():
             return redirect(url_for('new'))
 
     return render_template('new.html', events=Events.query.order_by(Events.pub_date.desc()).all())
+
+@app.route('/adm/dashboard/announcements', methods=['GET', 'POST'])
+def announcements():
+    if request.method == 'POST':
+        isActive = None
+
+        if request.form.get('on', None) == "1":
+            isActive = 1
+        elif request.form.get('off', None) == "0":
+            isActive = 0
+
+        if not request.form['message']:
+            flash('Please enter all the fields', 'error')
+        else:
+            announcement = Announcements(request.form['message'], isActive)
+
+            db.session.add(announcement)
+            db.session.commit()
+
+            flash('Announcement was successfully created')
+
+            return redirect(url_for('announcements'))
+
+    return render_template('announcements.html', announcements=Announcements.query.order_by(Announcements.pub_date.desc()).all())
+
 
 @app.route('/data')
 def names():
@@ -211,7 +248,7 @@ def event_stream(client):
 
 @app.route('/post', methods=['POST'])
 def post():
-    sha1sum = sha1(request.data).hexdigest()
+    sha1sum = sha1(request.data).hexdigest() #remove the hash, for photo deletion
     target = os.path.join(DATA_DIR, '{0}.jpg'.format(sha1sum))
     message = json.dumps({'src': target,
                           'ip_addr': safe_addr(request.access_route[0])})
@@ -228,11 +265,11 @@ def post():
     #return Response(event_stream(request.access_route[0]),
                           #mimetype='text/event-stream')
 
-@app.route('/admin/dashboard/static/uploads/<filename>')
+@app.route('/adm/dashboard/static/uploads/<filename>')
 def reroute_image(filename):
     return redirect('/static/uploads/'+filename)
 
-@app.route('/admin/dashboard/photos')
+@app.route('/adm/dashboard/photos')
 def home():
     image_infos = []
     for filename in os.listdir(DATA_DIR):
@@ -264,7 +301,7 @@ def download_file(filename):
     os.remove(DATA_DIR+"/")
     return send_file(file_handle)
 
-@app.route('/admin/dashboard', methods=('GET','POST'))
+@app.route('/adm/dashboard', methods=('GET','POST'))
 def dashboard():
     return render_template('admin.html')
 
@@ -273,7 +310,7 @@ def portal():
     #check if session is active or not, etc.
     return redirect('/admin/login')
 
-@app.route('/admin/login')
+@app.route('/adm/login')
 def admin_login():
     return render_template('login.html')
 

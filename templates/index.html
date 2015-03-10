@@ -25,6 +25,20 @@
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
 		</noscript>
+      <style>
+        #blackBar {
+            position: absolute;
+            top: 60px;
+            margin: 0 auto;
+            right: 17px;
+            width: 250px;
+            max-height: 300px;
+            background-color: rgba(39, 40, 51, .5);
+            border-radius: 5px;
+            padding: 10px;
+            line-height: 1.5em;
+          }
+		</style>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -33,6 +47,14 @@
 		<!-- Header -->
 			<header id="header">
 				<h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
+				<div id="blackBar">
+                  <header class="major" style="margin: 0"><h4>Announcements</h4></header>
+                  {% for announcement in announcements %}
+										<p>{{ announcement.message }}</p>
+									{% endfor %}
+              </div>
+              <p id="top"></p>
+
 				<nav id="nav">
 					<ul>
 						<li><a href="/">Home</a></li>
@@ -232,7 +254,59 @@
 
 		<!-- Footer -->
 			<footer id="footer">
+              <div class="12u$">
+                <ul class="actions">
+                  <li><a href="#top" class="scrolly"><input type="submit" value="Back to Top" class="special"/></a></li>
+                </ul>
+              </div>
+              <div class="four-cols">
+                <div class="col">
+                  logo
+                </div>
+                <div class="col">
+                  <header>
+                    <h4>About AoIT</h4>
+                  </header>
+                  <p>Stuff about AoIT</p>
+                </div>
+                <div class="col">
+                  <header>
+                    <h4>Contact</h4>
+                  </header>
+                  <p>999 Jamaica Ave</p>
+                  <p>Brooklyn, NY 11208</p>
+                </div>
+                <div class="col">
+                  <header>
+                    <h4>Subscribe</h4>
+                  </header>
+                  <div class="row uniform 50%">
+                    <div class="12u$">
+                      <input type="text" placeholder="Enter Email">
+                    </div>
+                    <div class="12u$">
+                      <ul class="actions">
+                          <li><input type="submit" value="Subscribe" /></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-b row uniform 50%">
+                <ul class="icons 6u">
+					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
 
+                <ul class="copyright 6u$">
+					<li><p>&copy; Academy of Innovative Technology</p></li>
+				</ul>
+              </div>
+<!--
 				<ul class="icons">
 					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
@@ -242,9 +316,8 @@
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 
-<ul class="copyright">
-					<li>&copy; Academy of Innovative Technology</li>
-				</ul>
+
+-->
 			</footer>
 
 	</body>
