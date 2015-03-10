@@ -1625,7 +1625,8 @@
 
 	#footer {
 		background: #272833;
-		padding: 6em 0;
+		padding: 1em 0;
+        height: 20em;
 		text-align: center;
 	}
 
@@ -1703,9 +1704,7 @@
       float: right;
     }
   }
-#four{
- height: 60em;
-}
+
 a{
  color: transparent;
 }
@@ -1737,3 +1736,17 @@ webkit-scrollbar {
 	background: rgba(39, 40, 51, .4); 
 }
 */
+.four-cols{
+  border-top: 0.1em solid #3e3e43;
+  margin-bottom: 6em;
+}
+  .four-cols .col{
+    padding: 18px;
+    border: solid #3e3e43 0.1em;
+    width: 25%;
+    float:left;
+  }
+
+  .four-cols .col:first-child{
+    border-left: none; 
+  }
