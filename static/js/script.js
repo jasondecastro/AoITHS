@@ -1,6 +1,6 @@
 $('document').ready(function(){
   $('.message').hide();
-  var $btn = $('input[type=submit]');
+  var $btn = $('input[type=submit][0]');
   $btn.click(function(){
     $('#five .container').fadeOut();
     $('.message').delay().fadeIn();
