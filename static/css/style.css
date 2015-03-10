@@ -1626,7 +1626,7 @@
 	#footer {
 		background: #272833;
 		padding: 1em 0;
-        height: 20em;
+        height: 25em;
 		text-align: center;
 	}
 
@@ -1738,13 +1738,15 @@ webkit-scrollbar {
 */
 .four-cols{
   border-top: 0.1em solid #3e3e43;
-  margin-bottom: 6em;
+  margin-bottom: 8em;
+  line-height: 0.1em;
 }
   .four-cols .col{
     padding: 18px;
     border: solid #3e3e43 0.1em;
     width: 25%;
     float:left;
+    height: 12em;
   }
 
   .four-cols .col:first-child{
