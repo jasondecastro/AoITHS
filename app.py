@@ -118,7 +118,7 @@ def landing():
     if request.method == 'POST':
         goGo(form.name.data, form.message.data, form.email.data, request.remote_addr)
         flash('Your message has been sent.')
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, announcements=Announcements.query.order_by(Announcements.pub_date.desc()).all())
 
 @app.route('/events')
 def show_all():
@@ -248,7 +248,7 @@ def event_stream(client):
 
 @app.route('/post', methods=['POST'])
 def post():
-    sha1sum = sha1(request.data).hexdigest()
+    sha1sum = sha1(request.data).hexdigest() #remove the hash, for photo deletion
     target = os.path.join(DATA_DIR, '{0}.jpg'.format(sha1sum))
     message = json.dumps({'src': target,
                           'ip_addr': safe_addr(request.access_route[0])})

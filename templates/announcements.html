@@ -98,7 +98,7 @@
                             <input type="radio" class="btn" name="off" value="0">&nbsp;&nbsp;No
                           </div>
                         </div>
-                      </d
+                      </div>
                       <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-2">
                           <input type="submit" class="btn btn-primary" value="Submit">
@@ -108,6 +108,7 @@
                     <table class="table" style="width: 50%;">
                 <thead>
                         <tr>
+                          <th>ID</th>
                           <th>Announcement</th>
                           <th>Active</th>
                           <th>Date Added</th>
@@ -116,6 +117,7 @@
               	<tbody>
                         {% for announcement in announcements %}
                         <tr>
+                          <td>{{ announcement.id }}</td>
                           <td>{{ announcement.message }}</td>
                           <td>{{ announcement.active }}</td>
                           <td>{{ announcement.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>

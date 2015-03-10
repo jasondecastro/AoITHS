@@ -49,8 +49,9 @@
 				<h1 id="logo"><a href="/">Academy of Innovative Technology</a></h1>
 				<div id="blackBar">
                   <header class="major" style="margin: 0"><h4>Announcements</h4></header>
-                  <p>School is closed for students on XX/XX/XXXX</p>
-                  <p><strong>Attention Students</strong> - Next Week is Spring Break</p>
+                  {% for announcement in announcements %}
+										<p>{{ announcement.message }}</p>
+									{% endfor %}
               </div>
               <p id="top"></p>
 
@@ -300,7 +301,7 @@
 					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
-                
+
                 <ul class="copyright 6u$">
 					<li><p>&copy; Academy of Innovative Technology</p></li>
 				</ul>
