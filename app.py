@@ -305,14 +305,19 @@ def download_file(filename):
 def dashboard():
     return render_template('admin.html')
 
-@app.route('/admin')
+@app.route('/adm')
 def portal():
     #check if session is active or not, etc.
-    return redirect('/admin/login')
+    return redirect('/adm/login')
 
 @app.route('/adm/login')
 def admin_login():
     return render_template('login.html')
+
+@app.route('/adm/dashboard/email')
+def check_mail():
+    return render_template('email.html')
+
 
 if __name__ == '__main__':
   app.run(debug=True)
