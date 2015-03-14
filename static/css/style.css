@@ -1739,24 +1739,50 @@ webkit-scrollbar {
 .four-cols{
   border-top: 0.1em solid #3e3e43;
   margin-bottom: 8em;
-  line-height: 0.1em;
+  font-family: nimbus-sans, Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
   .four-cols .col{
-    padding: 18px;
+    padding: 0.5em;
     border: solid #3e3e43 0.1em;
-    width: 25%;
+/*    width: 25%;*/
     float:left;
     height: 12em;
-  }
+    text-align: left;
+  } 
 
   .four-cols .col:first-child{
     border-left: none; 
+    padding: 0;
+  }
+  
+  .col header h4{
+    color: #71717c; 
   }
 
 .footer-b .icons{
   text-align: left;
 }
+  .footer-b .icons .major{
+    border-radius: 100%;
+    width: 6em;
+    height: 6em;
+  }
+
+  .footer-b .icons .major:hover{
+    background: #e44c65;
+  }
+
+  .footer-b .icons .icon{
+    font-size: 0.5em;
+  }
 
 .copyright{
   margin-top: 2.5em;
+}
+cd
+
+#logo{
+  width: 100%;
+  height: 100%;
 }
