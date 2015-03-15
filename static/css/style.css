@@ -1687,11 +1687,7 @@
 	.style3 a, .style3 a:hover{
 		border: none;
 	}
-/*
-.department-info{
-  text-align: left;
-}
-*/
+
   .fa-times{
     position: absolute;
     top: -5em;
@@ -1709,33 +1705,6 @@ a{
  color: transparent;
 }
 
-/*
-html {
-    overflow: auto;
-}
-body {
-    padding: 30px; 
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-webkit-scrollbar {
-    width: 12px;
-}
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgb(39, 40, 51); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(39, 40, 51, .4); 
-}
-*/
 .four-cols{
   border-top: 0.1em solid #3e3e43;
   margin-bottom: 8em;
@@ -1745,7 +1714,6 @@ webkit-scrollbar {
   .four-cols .col{
     padding: 0.5em;
     border: solid #3e3e43 0.1em;
-/*    width: 25%;*/
     float:left;
     height: 12em;
     text-align: left;
@@ -1780,7 +1748,6 @@ webkit-scrollbar {
 .copyright{
   margin-top: 2.5em;
 }
-cd
 
 #logo{
   width: 100%;
